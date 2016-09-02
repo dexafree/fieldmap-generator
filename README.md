@@ -1,4 +1,4 @@
-# FieldMapGenerator [![Travis Build](https://travis-ci.org/dexafree/fieldmap-generator.svg)](https://travis-ci.org/dexafree/fieldmap-generator)
+# FieldMapGenerator [![Travis Build](https://travis-ci.org/dexafree/fieldmap-generator.svg)](https://travis-ci.org/dexafree/fieldmap-generator) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.dexafree/fieldmap-generator/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.github.dexafree/fieldmap-generator)
 
 FieldMapGenerator is a small utility that will help you convert your objects to a `Map<String, String>`, which will 
 contain the fields declared in your object.
@@ -77,7 +77,7 @@ For running the tests, you can do it with the following command:
 You can:
  
 1. Download the source code and copy the classes to your project
-2. Download the JAR from Maven Central 
+2. Download the [JAR from Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22fieldmap-generator%22) 
 3. If you use Gradle as your build system, include the next statement under your dependencies section:
 
 ```groovy
