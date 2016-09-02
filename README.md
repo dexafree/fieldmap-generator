@@ -1,4 +1,4 @@
-# FieldMapGenerator
+# FieldMapGenerator ![Travis Build](https://travis-ci.org/dexafree/fieldmap-generator.svg)
 
 FieldMapGenerator is a small utility that will help you convert your objects to a `Map<String, String>`, which will 
 contain the fields declared in your object.
