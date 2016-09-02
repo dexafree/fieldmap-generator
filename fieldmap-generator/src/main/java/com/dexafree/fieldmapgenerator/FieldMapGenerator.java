@@ -25,12 +25,12 @@ import com.dexafree.fieldmapgenerator.annotation.Expose;
 
 /**
  * Class that will convert a given object (of any kind) and iterate over its fields, converting them to a
- * Map<String, String>.
+ * {@literal Map<String, String>}.
  *
  * It offers different working modes ({@link MODE}), that can be passed to the "toMap" method.
  * Read the {@link MODE} description for better understanding
  *
- * @author Dexafree <contacto@dexa-dev.com>
+ * @author Dexafree {@literal <contacto@dexa-dev.com>}
  */
 public class FieldMapGenerator {
 
@@ -48,8 +48,8 @@ public class FieldMapGenerator {
     }
 
     /**
-     * Converts a given object to a Map<String, String> containing the attributes acording to the given mode
-     * @param object Object to be serialized into a Map<String, String>
+     * Converts a given object to a {@literal Map<String, String>} containing the attributes acording to the given mode
+     * @param object Object to be serialized into a {@literal Map<String, String>}
      * @param mode {@link MODE} that indicates which fields will be serialized
      * @return Map containing the fields
      */
@@ -113,8 +113,8 @@ public class FieldMapGenerator {
 
 
     /**
-     * Converts a given object to a Map<String, String> containing only the visible attributes
-     * @param object Object to be serialized into a Map<String, String>
+     * Converts a given object to a {@literal Map<String, String>} containing only the visible attributes
+     * @param object Object to be serialized into a {@literal Map<String, String>}
      * @return Map containing the fields
      */
     public static Map<String, String> toMap(Object object){
