@@ -1,0 +1,63 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'com.bmuschko.nexus'
+
+sourceCompatibility = 1.7
+version = '1.0.5'
+
+idea {
+    module {
+        sourceDirs += file('src')
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+
+modifyPom {
+    project {
+        name 'FieldMap Generator'
+        description 'Java library that aims to provide a very simplified way to use criptographic hash and cipher functions'
+        groupId 'com.github.dexafree'
+        url 'https://github.com/dexafree/FieldMap-Generator'
+        inceptionYear '2016'
+
+        scm {
+            url 'https://github.com/dexafree/FieldMap-Generator'
+            connection 'scm:https://git@github.com/dexafree/FieldMap-Generator.git'
+            developerConnection 'scm:git://github.com/dexafree/FieldMap-Generator.git'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id 'dexafree'
+                name 'Dexafree'
+                email 'contacto@dexa-dev.com'
+            }
+        }
+    }
+}
+
+extraArchive {
+    sources = true
+    tests = true
+    javadoc = true
+}
+
+nexus {
+    sign = true
+}

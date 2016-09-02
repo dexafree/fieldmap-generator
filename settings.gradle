@@ -1,0 +1,3 @@
+rootProject.name = 'fieldmap-generator'
+include 'fieldmap-generator'
+
