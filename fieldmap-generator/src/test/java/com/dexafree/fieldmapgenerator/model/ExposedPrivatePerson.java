@@ -1,19 +1,19 @@
 package com.dexafree.fieldmapgenerator.model;
 
-import com.dexafree.fieldmapgenerator.annotation.Expose;
+import com.dexafree.fieldmapgenerator.annotation.ExposeField;
 
 /**
  * For testing purposes
  */
 public class ExposedPrivatePerson {
 
-    @Expose
+    @ExposeField
     private String name;
 
-    @Expose("person_age")
+    @ExposeField("person_age")
     private int age;
 
-    @Expose
+    @ExposeField
     private String address;
 
     public ExposedPrivatePerson(String name, int age, String address) {

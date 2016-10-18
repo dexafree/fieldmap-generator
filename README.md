@@ -3,7 +3,7 @@
 FieldMapGenerator is a small utility that will help you convert your objects to a `Map<String, String>`, which will 
 contain the fields declared in your object.
 
-It comes with a handy annotation, `@Expose`, which will enable you to choose which fields will be exported, and even
+It comes with a handy annotation, `@ExposeField`, which will enable you to choose which fields will be exported, and even
 choose the name that they will have once exported (aka, the key of the Map).
 
 It's very useful when you want to send objects through Retrofit, but you need to do it with a `@FormUrlEncoded` POST request, 
@@ -18,21 +18,21 @@ The `FieldMapGenerator` class exposes two static methods:
     * MODE mode: It can be one of 
          * FULL_OBJECT: The full object will be serialized, including protected and private fields.
          * ONLY_VISIBLE: Only visible fields (public) will be serialized.
-         * ONLY_ANNOTATED: Only fields containing @Expose annotation will be serialized.
+         * ONLY_ANNOTATED: Only fields containing @ExposeField annotation will be serialized.
 2. `toMap(Object object)`. Default behaviour. Uses the `ONLY_ANNOTATED` mode.
 
-### The `@Expose` annotation
+### The `@ExposeField` annotation
 
-You can annotate any field with `@Expose`. This annotation receives an optional parameter, which will be used as the field
-name. It can be used as `@Expose("field_name")`.
+You can annotate any field with `@ExposeField`. This annotation receives an optional parameter, which will be used as the field
+name. It can be used as `@ExposeField("field_name")`.
 
 Take into account that if there's a duplication in the Map keys (you name two fields with the same name), an exception
 will be thrown as a warning.
 
 > ### NOTE
-> If any of the fields have the @Expose annotation with a field name, and is exported, the given name will always be used.
+> If any of the fields have the @ExposeField annotation with a field name, and is exported, the given name will always be used.
 >
-> Example: A private field with @Expose("name") will not be exported if ONLY_VISIBLE mode is used, but if any other mode
+> Example: A private field with @ExposeField("name") will not be exported if ONLY_VISIBLE mode is used, but if any other mode
 > is used, the Map key for that field will be "name".
 >
 > You can take a look at the tests for further examples.
@@ -44,10 +44,10 @@ will be thrown as a warning.
 ```java
 public class MyRequest {
     
-    @Expose("username")
+    @ExposeField("username")
     private String username;
     
-    @Expose("user_age")
+    @ExposeField("user_age")
     private int age;
     
     // Constructor, getters, setters...
@@ -83,7 +83,7 @@ You can:
 ```groovy
 dependencies {
     // ...
-    compile 'com.github.dexafree:fieldmap-generator:1.0.0'
+    compile 'com.github.dexafree:fieldmap-generator:1.0.1'
 }
 ```
 

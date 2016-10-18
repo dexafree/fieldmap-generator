@@ -21,7 +21,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.dexafree.fieldmapgenerator.annotation.Expose;
+import com.dexafree.fieldmapgenerator.annotation.ExposeField;
 
 /**
  * Class that will convert a given object (of any kind) and iterate over its fields, converting them to a
@@ -39,7 +39,7 @@ public class FieldMapGenerator {
      *
      * FULL_OBJECT: The full object will be serialized, including protected and private fields
      * ONLY_VISIBLE: Only visible fields (public) will be serialized
-     * ONLY_ANNOTATED: Only fields containing {@link Expose} annotation will be serialized
+     * ONLY_ANNOTATED: Only fields containing {@link ExposeField} annotation will be serialized
      */
     enum MODE {
         FULL_OBJECT,
@@ -98,7 +98,7 @@ public class FieldMapGenerator {
                 // Check if there is a field named that way that has been already included
                 if(map.containsKey(fieldName)){
                     throw new IllegalStateException("The " + fieldName + " key is duplicated. Please check your " +
-                            "@Expose namings, and ensure that no other field is named that way");
+                            "@ExposeField namings, and ensure that no other field is named that way");
                 }
 
                 String fieldValue = field.get(object).toString();
@@ -123,9 +123,9 @@ public class FieldMapGenerator {
 
 
     /**
-     * Checks if a given Field contains the {@link Expose} annotation
+     * Checks if a given Field contains the {@link ExposeField} annotation
      * @param field Field which will be tested
-     * @return true if the field contains the {@link Expose} annotation
+     * @return true if the field contains the {@link ExposeField} annotation
      */
     private static boolean isFieldAnnotated(Field field){
 
@@ -136,7 +136,7 @@ public class FieldMapGenerator {
         for(Annotation annotation : annotations){
 
             // If the field contains the annotation, return true and exit the loop
-            if(annotation instanceof Expose){
+            if(annotation instanceof ExposeField){
                 return true;
             }
         }
@@ -148,7 +148,7 @@ public class FieldMapGenerator {
 
     /**
      * Given a field, this extracts the name of the field. If the field is not annotated, the real name will be used.
-     * Otherwise, if the field contains a {@link Expose} annotation, and has been given a name, the given name
+     * Otherwise, if the field contains a {@link ExposeField} annotation, and has been given a name, the given name
      * will be used.
      *
      * @param field Field whose name will be extracted
@@ -169,10 +169,10 @@ public class FieldMapGenerator {
         for(Annotation annotation : annotations){
 
             // If the UrlEncode annotation is found, check if it has been given a name
-            if(annotation instanceof Expose){
+            if(annotation instanceof ExposeField){
 
                 // Downcast the annotation
-                Expose castedAnnotation = (Expose) annotation;
+                ExposeField castedAnnotation = (ExposeField) annotation;
                 String annotationValue = castedAnnotation.value();
 
                 // Check if we are getting the default value
