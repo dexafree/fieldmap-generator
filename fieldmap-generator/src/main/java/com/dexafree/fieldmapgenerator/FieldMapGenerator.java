@@ -41,7 +41,7 @@ public class FieldMapGenerator {
      * ONLY_VISIBLE: Only visible fields (public) will be serialized
      * ONLY_ANNOTATED: Only fields containing {@link ExposeField} annotation will be serialized
      */
-    enum MODE {
+    public enum MODE {
         FULL_OBJECT,
         ONLY_VISIBLE,
         ONLY_ANNOTATED

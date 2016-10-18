@@ -83,7 +83,7 @@ You can:
 ```groovy
 dependencies {
     // ...
-    compile 'com.github.dexafree:fieldmap-generator:1.0.1'
+    compile 'com.github.dexafree:fieldmap-generator:1.0.2'
 }
 ```
 
